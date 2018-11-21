@@ -29,7 +29,7 @@ public class NoteControllerImpl implements INoteController{
 	}
 	@Override
 	@RequestMapping("/notes/creer")
-	public String CreerFormulaireNote(Model model) {
+	public String creerFormulaireNote(Model model) {
 		Note note=new Note();
 		List<Etudiant>etudiants=noteBusiness.getEtudiants();
 		List<Matiere>matieres=noteBusiness.getMatieres();
@@ -40,7 +40,7 @@ public class NoteControllerImpl implements INoteController{
 	}
 	@Override
 	@PostMapping("/notes/creer")
-	public String CreerNote(Model model,@RequestParam Note note) {
+	public String creerNote(Model model,@RequestParam Note note) {
 		noteBusiness.creer(note);
 		return "redirect:/notes";
 	}

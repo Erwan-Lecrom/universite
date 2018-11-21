@@ -25,7 +25,7 @@ public class EnseignantControllerImpl implements IEnseignantController{
 	private static String ATTR_ENSEIGNANT="enseignant";
 	@Override
 	@RequestMapping("/enseignants")
-	public String ListeEnseignant(Model model) {
+	public String listeEnseignant(Model model) {
 		LOGGER.info("Entree dans le controlleur qui gere la page des liste d'enseignants");
 		LOGGER.info("Recuperation de la liste des utilisateur dans la BDD");
 		List<Enseignant>enseignants=enseignantBusiness.findAll();
@@ -57,7 +57,7 @@ public class EnseignantControllerImpl implements IEnseignantController{
 	}
 	@Override
 	@RequestMapping("/enseignant/creer")
-	public String CreerFormulaireEnseignant(Model model) {
+	public String creerFormulaireEnseignant(Model model) {
 		LOGGER.info("Entree dans le controlleur qui gere la formulaire de creation d'un enseignant");
 		model.addAttribute("titreForm","Creation enseignant");
 		LOGGER.info("Creation d'un objet enseignant vide");
@@ -69,7 +69,7 @@ public class EnseignantControllerImpl implements IEnseignantController{
 
 	@Override
 	@PostMapping("/enseignant/creer")
-	public String CreerEnseignant(@ModelAttribute Enseignant enseignant,Model model) {
+	public String creerEnseignant(@ModelAttribute Enseignant enseignant,Model model) {
 		LOGGER.info("on verifie la validite des données");
 		enseignantBusiness.creer(enseignant);
 		return REDIRECT_ENSEIGNANTS;
@@ -77,7 +77,7 @@ public class EnseignantControllerImpl implements IEnseignantController{
 
 	@Override
 	@RequestMapping("/enseignant/modifier")
-	public String ModifierFormulaireEnseignant(Model model,@RequestParam Long id) {
+	public String modifierFormulaireEnseignant(Model model,@RequestParam Long id) {
 		Enseignant enseignant = enseignantBusiness.findById(id);
 		model.addAttribute("titreForm","Modification enseignant");
 		model.addAttribute(ATTR_ENSEIGNANT,enseignant);
@@ -87,7 +87,7 @@ public class EnseignantControllerImpl implements IEnseignantController{
 
 	@Override
 	@PostMapping("/enseignants/modifier")
-	public String ModifierEnseignant(Model model,@ModelAttribute Enseignant enseignant) {
+	public String modifierEnseignant(Model model,@ModelAttribute Enseignant enseignant) {
 
 		return REDIRECT_ENSEIGNANTS;
 	}
