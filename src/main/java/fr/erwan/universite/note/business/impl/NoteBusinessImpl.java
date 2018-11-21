@@ -11,7 +11,6 @@ import fr.erwan.universite.matiere.business.IMatiereBusiness;
 import fr.erwan.universite.matiere.domain.Matiere;
 import fr.erwan.universite.note.business.INoteBusiness;
 import fr.erwan.universite.note.domain.Note;
-import fr.erwan.universite.note.domain.PKNote;
 import fr.erwan.universite.note.repository.INoteRepository;
 @Service
 public class NoteBusinessImpl implements INoteBusiness{

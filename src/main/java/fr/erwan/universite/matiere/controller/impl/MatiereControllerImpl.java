@@ -28,8 +28,11 @@ public class MatiereControllerImpl implements IMatiereController {
 	@Override
 	@GetMapping("/matieres")
 	public String listeMatiere(Model model) {
+		LOGGER.info("Controlleur listeMatiere");
 		List<Matiere>matieres=matiereBusiness.findAll();
+		LOGGER.info("creation attribut contenant la liste des matieres");
 		model.addAttribute("matieres",matieres);
+		LOGGER.info("Chargement de la page liste matiere");
 		return "matiere/matieres";
 	}
 

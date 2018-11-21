@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,10 +22,13 @@ public class Enseignant {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id ;
+	@NotNull
 	@Column(name="num_enseignant")
 	private Long enseignantNum;
+	@Size(min=2)
 	@Column(name="nom")
 	private String nom;
+	@Size(min=2)
 	@Column(name="prenom")
 	private String prenom ;
 	@Column(name="date_naissance")

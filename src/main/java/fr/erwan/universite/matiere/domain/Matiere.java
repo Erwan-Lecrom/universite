@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,8 +25,10 @@ public class Matiere {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private Long id ;
+	@NotNull
 	@Column(name="num_matiere")
 	private Long matiereNum ;
+	@Size(min=2)
 	@Column(name="nom")
 	private String nom ; 
 	@Column(name="date_debut")
@@ -35,8 +39,6 @@ public class Matiere {
 	private Date dateFin;
 	@Column(name="coef")
 	private Integer coef;
-	//@Column(name="id_enseignant")
-	//private Long enseignantId;
 	@ManyToOne
 	@JoinColumn(name="id_enseignant")
 	private Enseignant enseignant;

@@ -17,7 +17,6 @@ import fr.erwan.universite.etudiant.business.IEtudiantBusiness;
 import fr.erwan.universite.etudiant.business.impl.EtudiantBusinessImpl;
 import fr.erwan.universite.etudiant.controller.IEtudiantController;
 import fr.erwan.universite.etudiant.domain.Etudiant;
-import fr.erwan.universite.note.domain.Note;
 
 @Controller
 public class EtudiantControllerImpl implements IEtudiantController {
