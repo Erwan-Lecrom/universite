@@ -23,6 +23,8 @@ public class MatiereControllerImpl implements IMatiereController {
 	@Autowired
 	private IMatiereBusiness matiereBusiness;
 	private Logger LOGGER=LoggerFactory.getLogger(MatiereControllerImpl.class);
+	private static String REDIRECT_MATIERES="redirect:/matieres";
+	private static String ATTR_MATIERE="matiere";
 	@Override
 	@GetMapping("/matieres")
 	public String listeMatiere(Model model) {
@@ -41,7 +43,7 @@ public class MatiereControllerImpl implements IMatiereController {
 		} catch (Exception e) {
 			
 		}
-		model.addAttribute("matiere",matiere);
+		model.addAttribute(ATTR_MATIERE,matiere);
 		model.addAttribute("enseignant",enseignant);
 		return "matiere/matiere";
 	}
@@ -53,7 +55,7 @@ public class MatiereControllerImpl implements IMatiereController {
 		Matiere matiere=new Matiere();
 		model.addAttribute("titreForm","Creation matiere");
 		model.addAttribute("submit","creer");
-		model.addAttribute("matiere",matiere);
+		model.addAttribute(ATTR_MATIERE,matiere);
 		model.addAttribute("enseignants",enseignants);
 		return "matiere/form";
 	}
@@ -64,7 +66,7 @@ public class MatiereControllerImpl implements IMatiereController {
 		Enseignant enseignant=matiereBusiness.findEnseignantById(id);
 		matiere.setEnseignant(enseignant);
 		matiereBusiness.creer(matiere);
-		return "redirect:/matieres";
+		return REDIRECT_MATIERES;
 	}
 
 	@Override
@@ -72,7 +74,7 @@ public class MatiereControllerImpl implements IMatiereController {
 	public String supprimerMatiere(Model model,@RequestParam("id") Long id) {
 		matiereBusiness.supprimer(id);
 		model.addAttribute("msgSuppr","La matiere a bien ete supprimes");
-		return "redirect:/matieres";
+		return REDIRECT_MATIERES;
 	}
 
 	@Override
@@ -81,7 +83,7 @@ public class MatiereControllerImpl implements IMatiereController {
 		model.addAttribute("titreForm","Modification matiere");
 		model.addAttribute("submit","modifier");
 		Matiere matiere=matiereBusiness.findById(id);
-		model.addAttribute("matiere",matiere);
+		model.addAttribute(ATTR_MATIERE,matiere);
 		List<Enseignant>enseignants=matiereBusiness.findAllEnseignant();
 		model.addAttribute("enseignants",enseignants);
 		return "matiere/form";

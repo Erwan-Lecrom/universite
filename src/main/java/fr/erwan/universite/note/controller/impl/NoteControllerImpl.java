@@ -18,12 +18,14 @@ import fr.erwan.universite.note.domain.Note;
 public class NoteControllerImpl implements INoteController{
 	@Autowired
 	private INoteBusiness noteBusiness;
+	private static String ATTR_NOTES="notes";
+	private static String NOTES="note/notes";
 	@Override
 	@RequestMapping("/notes")
 	public String notes(Model model) {
 		List<Note>notes=noteBusiness.getAll();
-		model.addAttribute("notes",notes);
-		return "note/notes";
+		model.addAttribute(ATTR_NOTES,notes);
+		return NOTES;
 	}
 	@Override
 	@RequestMapping("/notes/creer")
@@ -46,15 +48,15 @@ public class NoteControllerImpl implements INoteController{
 	@PostMapping("/notes/inf")
 	public String notesInferieur(Model model,@RequestParam("note") Float note) {
 		List<Note>notes=noteBusiness.getNoteInf(note);
-		model.addAttribute("notes",notes);
-		return "note/notes";
+		model.addAttribute(ATTR_NOTES,notes);
+		return NOTES;
 	}
 	@Override
 	@PostMapping("/notes/sup")
 	public String notesSuperieur(Model model, Float note) {
 		List<Note>notes=noteBusiness.getNoteSup(note);
-		model.addAttribute("notes",notes);
-		return "note/notes";
+		model.addAttribute(ATTR_NOTES,notes);
+		return NOTES;
 	}
 
 }

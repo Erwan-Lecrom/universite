@@ -21,6 +21,8 @@ public class EnseignantControllerImpl implements IEnseignantController{
 	@Autowired
 	private IEnseignantBusiness enseignantBusiness;
 	private Logger LOGGER = LoggerFactory.getLogger(EnseignantControllerImpl.class);
+	private static String REDIRECT_ENSEIGNANTS="redirect:/enseignants";
+	private static String ATTR_ENSEIGNANT="enseignant";
 	@Override
 	@RequestMapping("/enseignants")
 	public String ListeEnseignant(Model model) {
@@ -42,13 +44,13 @@ public class EnseignantControllerImpl implements IEnseignantController{
 			LOGGER.info("Tentative de récupération de l'enseignant en fonction de l'id");
 			enseignant = enseignantBusiness.findById(id);
 			LOGGER.info("Enseignant recuperé et creation de l'attribut contenant l'enseignant");
-			model.addAttribute("enseignant",enseignant);
+			model.addAttribute(ATTR_ENSEIGNANT,enseignant);
 			LOGGER.info("chargement de la page");
 			return "enseignant/enseignant";
 		} catch (Exception e) {
 			LOGGER.info("Récupération echouée : L'enseignant avec l'id "+id+" n'existe pas dans la BDD");
 			model.addAttribute("erreur","l'utilisateur n'existe pas dans la BDD");
-			return "redirect:/enseignants";
+			return REDIRECT_ENSEIGNANTS;
 		}
 
 
@@ -60,7 +62,7 @@ public class EnseignantControllerImpl implements IEnseignantController{
 		model.addAttribute("titreForm","Creation enseignant");
 		LOGGER.info("Creation d'un objet enseignant vide");
 		Enseignant e=new Enseignant();
-		model.addAttribute("enseignant",e);
+		model.addAttribute(ATTR_ENSEIGNANT,e);
 		LOGGER.info("On charge le formulaire");
 		return "enseignant/form";
 	}
@@ -70,7 +72,7 @@ public class EnseignantControllerImpl implements IEnseignantController{
 	public String CreerEnseignant(@ModelAttribute Enseignant enseignant,Model model) {
 		LOGGER.info("on verifie la validite des données");
 		enseignantBusiness.creer(enseignant);
-		return "redirect:/enseignants";
+		return REDIRECT_ENSEIGNANTS;
 	}
 
 	@Override
@@ -78,7 +80,7 @@ public class EnseignantControllerImpl implements IEnseignantController{
 	public String ModifierFormulaireEnseignant(Model model,@RequestParam Long id) {
 		Enseignant enseignant = enseignantBusiness.findById(id);
 		model.addAttribute("titreForm","Modification enseignant");
-		model.addAttribute("enseignant",enseignant);
+		model.addAttribute(ATTR_ENSEIGNANT,enseignant);
 		return "enseignant/form";
 	}
 
@@ -87,12 +89,12 @@ public class EnseignantControllerImpl implements IEnseignantController{
 	@PostMapping("/enseignants/modifier")
 	public String ModifierEnseignant(Model model,@ModelAttribute Enseignant enseignant) {
 
-		return "redirect:/enseignants";
+		return REDIRECT_ENSEIGNANTS;
 	}
 	@Override
 	@RequestMapping("/enseignant/supprimer")
 	public String supprimerEnseignant(@RequestParam("id") Long id) {
 		enseignantBusiness.supprimer(id);
-		return "redirect:/enseignants";
+		return REDIRECT_ENSEIGNANTS;
 	}
 }
