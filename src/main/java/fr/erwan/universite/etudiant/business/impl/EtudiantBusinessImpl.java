@@ -1,9 +1,11 @@
 package fr.erwan.universite.etudiant.business.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import fr.erwan.universite.etudiant.business.IEtudiantBusiness;
 import fr.erwan.universite.etudiant.domain.Etudiant;
 import fr.erwan.universite.etudiant.repository.IEtudiantrepository;
@@ -34,12 +36,13 @@ public class EtudiantBusinessImpl implements IEtudiantBusiness {
 
 	@Override
 	public List<Etudiant> chercher(String chercher, String categorie) {
+		List<Etudiant>etudiants=new ArrayList<>();
 		if (categorie.equals("nom")) {
-			return etudiantRepository.findByNomIs(chercher);
+			etudiants=etudiantRepository.findByNomIs(chercher);
 		}else if (categorie.equals("prenom")) {
-			return etudiantRepository.findByPrenomIs(chercher);
+			etudiants=etudiantRepository.findByPrenomIs(chercher);
 		}
-		return null;
+		return etudiants;
 	}
 
 
