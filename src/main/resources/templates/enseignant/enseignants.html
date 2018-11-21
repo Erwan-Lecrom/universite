@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liste enseignants</title>
+<link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/5.5.0/css/fontawesome.min.css}">
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<p th:text=${erreur}></p>
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Nom</td>
+				<td>Prenom</td>
+				<td>Date naissance</td>
+				<td>Date embauche</td>
+				<td>Sexe</td>
+				<td>Grade</td>
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="e : ${enseignants}">
+			<td th:text="${e.nom}"></td>
+			<td th:text="${e.prenom}"></td>
+			<td th:text="${''+e.dateNaissance}"></td>
+			<td th:text="${''+e.dateEmbauche}"></td>
+			<td th:text="${e.sexe}"></td>
+			<td th:text="${e.grade}"></td>
+			<td><a th:href="@{/enseignant(id=${e.id})}">details</a></td>
+			<td><a th:href="@{/enseignant/supprimer(id=${e.id})}">Supprimer</a></td>
+			<td><a th:href="@{/enseignant/modifier(id=${e.id})}">Modifier</a></td>
+		</tr>
+		</tbody>
+		
+	</table>
+	<a class="btn" th:href="@{/enseignant/creer}">Ajouter enseignant</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title th="${'Page '+ titreForm}"></title>
+<link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<form method="post">
+		<fieldset>
+			<legend th:text="${titreForm}"></legend>
+			<label for="nom">Nom :</label>
+			<input id="nom" name="nom" th:value="${matiere.nom}"/>
+			<label for="coef">Coef</label>
+			<input id="coef" name="coef" type="number" th:value="${matiere.coef}">
+			<label for="matiereNum">Numero matiere</label>
+			<input id="matiereNum" name="matiereNum" type="number" th:value="${matiere.matiereNum}">
+			<label>Date debut :</label>
+			<input id="dateDebut" name="dateDebut" type="date" th:field="*{matiere.dateDebut}">
+			<label>Date fin :</label>
+			<input id="dateFin" name="dateFin" type="date" th:field="*{matiere.dateFin}">
+			<label for="enseignant">Enseignant</label>
+			<select name="enseignantId" id="enseignant">
+				<option th:each="e : ${enseignants}" th:value="${e.id}" th:text="${e.nom +' ' + e.prenom}"></option>
+			</select>
+			<input type="submit" th:value="${submit}">
+		</fieldset>
+	</form>
+</body>
+</html>

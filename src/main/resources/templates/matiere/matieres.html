@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liste des matieres</title>
+<link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<h1>Liste des matieres</h1>
+	<p th:text="${msgSuppr}"></p>
+	<table class="table">
+		<tr th:each="m : ${matieres}">
+			<td th:text="${m.nom}"></td>
+			<td><a th:href="@{/matiere(id=${m.id})}">Details</a></td>
+			<td><a th:href="@{/matiere/supprimer(id=${m.id})}">Supprimer</a></td>
+			<td><a th:href="@{/matiere/modifier(id=${m.id})}">Modifier</a></td>
+		</tr>
+	</table>
+	<a th:href="@{matiere/creer}">Ajouter matiere</a>
+</body>
+</html>

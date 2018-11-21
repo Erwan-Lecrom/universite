@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Page creation etudiant</title>
+<link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<form method="post">
+		<fieldset>
+			<legend>Creation etudiant</legend>
+			<label for="nom">Nom: </label>
+			<input id="nom" name="nom"/>
+			<label for="prenom">Prenom :</label>
+			<input id="prenom" name="prenom" />
+			<label for="etudiantNum">Numero etudiant</label>
+			<input id="etudiantNum" name="etudiantNum" type="number"/>
+			<label for="dateNaissance">Date naissance :</label>
+			<input id="dateNaissance" name="dateNaissance" type="date"/>
+			<label for="sexeM">M</label>
+			<input id="sexeM" name="sexe" type="radio" value="M"/>
+			<label for="sexeF">F</label>
+			<input id="sexeF" name="sexe" type="radio" value="F"/>
+			<input type="submit" value="Creer">
+		</fieldset>
+	</form>
+</body>
+</html>

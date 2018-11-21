@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Page de creation note</title>
+<link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>	
+	<div th:replace="fragments/header::header"></div>
+	<form method="post">
+		<label for="matiere">Matiere</label>
+		<select name="matiere" id="matiere">
+			<option th:each="m : ${matieres}" th:text="${m.nom}" th:value="${m.id}"></option>
+		</select>
+		<label for="etudiant">Etudiant</label>
+		<select name="etudiant" id="etudiant">
+			<option th:each="e : ${etudiants}" th:text="${e.nom +' ' +e.prenom}" th:value="${e.id}"></option>
+		</select>
+		<label for="note">Note</label>
+		<input name="note" id="note">
+		<input type="submit" value="creer">
+	</form>
+</body>
+</html>

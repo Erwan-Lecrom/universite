@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liste notes</title>
+<link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<form method="post" th:action="@{/notes/inf}">
+	<label for="noteInf">Note inferieur a </label>
+	<input type="number" name="note" id="noteInf">
+	<input type="submit" value="Chercher">
+	</form>
+	<form method="post" th:action="@{/notes/sup}">
+	<label for="noteSup">Note superieur a </label>
+	<input type="number" name="note" id="noteSup">
+	<input type="submit" value="Chercher">
+	</form>
+	<h1>Liste Notes</h1>
+	<a th:href="@{/notes/creer}" class="btn">Ajouter note</a>
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Etudiant</td>
+				<td>Matiere</td>
+				<td>Note</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="n:${notes}">
+				<td th:text="${n.pkNote.etudiant.nom + ' ' + n.pkNote.etudiant.prenom}"></td>
+				<td th:text="${n.pkNote.matiere.nom}"></td>
+				<td th:text="${n.note}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

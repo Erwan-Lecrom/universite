@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>page details</title>
+<link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'/>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<h1>details</h1>
+	<a th:href="@{/enseignants}">Retour liste</a>
+	<ul class="list-group">
+		<li class="list-group-item" th:text="${'Prenom : '+enseignant.prenom}"></li>
+		<li class="list-group-item" th:text="${'Nom : '+enseignant.nom}"></li>
+		<li class="list-group-item" th:text="${'Date de naissance : '+ enseignant.dateNaissance}"></li>
+		<li class="list-group-item" th:text="${'Date embauche : '+enseignant.dateEmbauche}"></li>
+		<li>Liste matieres :</li>
+		<ul th:each="m : ${enseignant.matieres}" class="list-group">
+			<li class="list-group-item" th:text="${'-' +m.nom}"></li>
+		</ul>
+	</ul>
+	<a th:href="@{/enseignants}">Retour liste</a>
+</body>
+</html>

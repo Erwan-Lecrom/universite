@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Liste etudiants</title>
+<link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<h1>Liste etudiant</h1>
+	<form th:action="@{/etudiants/chercher}">
+		<label for="rechercher">Rechercher</label>
+		<input name="rechercher" id="rechercher"/>
+		<select name="categorie">
+			<option value="nom">Nom</option>
+			<option value="prenom">Prenom</option>
+		</select>
+		<input type="submit" value="chercher"/>
+	</form>
+	<table class="table">
+		<tr th:each="e : ${etudiants}">
+			<td th:text="${e.nom}"></td>
+			<td th:text="${e.prenom}"></td>
+			<td th:text="${{e.dateNaissance}}"></td>
+			<td th:text="${e.sexe}"></td>
+			<td><a th:href="@{/etudiant(id=${e.id})}">Details</a></td>
+			<td><a th:href="@{/etudiant/supprimer(id=${e.id})}">Supprimer</a></td>
+		</tr>
+	</table>
+	<a th:href="@{/etudiant/creer}">Ajouter etudiant</a>
+</body>
+</html>

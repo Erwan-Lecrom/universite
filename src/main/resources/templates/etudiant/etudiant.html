@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Details etudiant</title>
+<link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<h1>Details</h1>
+	<ul class="list-group">
+		<li class="list-group-item" th:text="${'Nom: '+ etudiant.nom}"></li>
+		<li class="list-group-item" th:text="${'Prenom: '+etudiant.prenom}"></li>
+		<li class="list-group-item" th:text="${'Date naisssance: '+etudiant.dateNaissance}"></li>
+		<li class="list-group-item" th:text="${'sexe :' + etudiant.sexe }"></li>
+		<table class="table">
+			<tr th:each="n : ${etudiant.notes}">
+				<td th:text="${n.pkNote.matiere.nom}"></td>
+				<td th:text="${n.note}"></td>
+			</tr>
+		</table>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title th:text="${'Page '+ titreForm}"></title>
+<link rel='stylesheet' th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<form method="post">
+		<fieldset id="formulaire">
+			<legend th:text="${titreForm}"></legend>
+			<label for="nom">Nom :</label> 
+			<input type="text" name="nom" id="nom" th:value="${enseignant.nom}"/>
+			<label for="prenom">Prenom :</label> 
+			<input type="text" name="nom"id="nom" th:value="${enseignant.prenom}"/>	
+			<label for="dateNaissance">Date naissance :</label> 
+			<input type="text" name="dateNaissance" id="dateNaissance" th:field="*{enseignant.dateNaissance}"/>
+			<label for="sexeM">M</label>
+			<input type="radio" name="sexe" id="sexeM" value="M">
+			<label for="sexeF">F</label>
+			<input type="radio" name="sexe" id="sexeF" value="F"/>
+			<label for="grade">Grade :</label>
+			<select id="grade">
+				<option value="ASS">ASS</option>
+				<option value="MCF">MCF</option>
+				<option value="PR">PR</option>
+			</select>
+			<label for="dateEmbauche">Date embauche :</label>
+			<input id="dateEmbauche" name="dateEmbauche" type="date" th:field="*{enseignant.dateEmbauche}"/>
+			<input type="submit" value="Modifier">
+		</fieldset>	
+	</form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+@charset "ISO-8859-1";
+
+ul li {
+	list-style-type:none;
+}
+table , tr , td {
+	border:1px black solid;
+	border-collapse:collapse;
+}

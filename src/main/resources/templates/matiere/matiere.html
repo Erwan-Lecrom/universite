@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Details matiere</title>
+<link rel='stylesheet'
+	th:href='@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}'>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:replace="fragments/header::header"></div>
+	<h1>Details</h1>
+	<ul class="list-group">
+		<li class="list-group-item" th:text="${matiere.nom}"></li>
+		<li class="list-group-item"
+			th:text="${'enseignant: '+enseignant.nom + ' ' +enseignant.prenom }"></li>
+		<li class="list-group-item" th:text="${'coef : '+matiere.coef}"></li>
+	</ul>
+	<table class="table">
+		<caption>Tableau des notes</caption>
+		<thead>
+			<tr>
+				<td>Etudiant</td>
+				<td>Note</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="n : ${matiere.notes}">
+				<td
+					th:text="${n.pkNote.etudiant.nom + ' ' +n.pkNote.etudiant.prenom}"></td>
+				<td th:text="${n.note}"></td>
+			</tr>
+		</tbody>
+
+	</table>
+</body>
+</html>
