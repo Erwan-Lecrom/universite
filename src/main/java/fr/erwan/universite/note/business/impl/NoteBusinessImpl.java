@@ -45,14 +45,5 @@ public class NoteBusinessImpl implements INoteBusiness{
 	public List<Note> getNoteSup(Float note) {
 		return noteRepository.findByNoteGreaterThan(note);
 	}
-	@Override
-	public List<Note> findNoteByEtudiant(Long id) {
-		return null;
-	}
-	@Override
-	public List<Note> findNoteByMatiere(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

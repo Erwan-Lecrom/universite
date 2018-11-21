@@ -13,6 +13,4 @@ public interface INoteBusiness {
 	public List<Etudiant>getEtudiants();
 	public List<Note>getNoteInf(Float note);
 	public List<Note>getNoteSup(Float note);
-	public List<Note>findNoteByEtudiant(Long id);
-	public List<Note>findNoteByMatiere(Long id);
 }

@@ -19,14 +19,12 @@ public class MatiereBusinessImpl implements IMatiereBusiness {
 	private IEnseignantBusiness enseignantBusiness;
 	@Override
 	public List<Matiere> findAll() {
-		List<Matiere>matieres=matiereRepository.findAll();
-		return matieres;
+		return matiereRepository.findAll();
 	}
 
 	@Override
 	public Matiere findById(Long id) {
-		Matiere matiere=matiereRepository.getOne(id);
-		return matiere;
+		return matiereRepository.getOne(id);
 	}
 
 	@Override
@@ -47,11 +45,7 @@ public class MatiereBusinessImpl implements IMatiereBusiness {
 
 	@Override
 	public Enseignant findEnseignantById(Long id){
-		try {
-			return enseignantBusiness.findById(id);
-		} catch (Exception e) {
-			return null;
-		}
+		return enseignantBusiness.findById(id);
 	}
 
 	@Override
