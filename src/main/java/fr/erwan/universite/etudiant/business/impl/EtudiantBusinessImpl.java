@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 import fr.erwan.universite.etudiant.business.IEtudiantBusiness;
 import fr.erwan.universite.etudiant.domain.Etudiant;
 import fr.erwan.universite.etudiant.repository.IEtudiantrepository;
-import fr.erwan.universite.note.business.INoteBusiness;
-import fr.erwan.universite.note.domain.Note;
 
 @Service
 public class EtudiantBusinessImpl implements IEtudiantBusiness {

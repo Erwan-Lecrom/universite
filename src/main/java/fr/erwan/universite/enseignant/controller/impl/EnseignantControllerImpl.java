@@ -76,12 +76,8 @@ public class EnseignantControllerImpl implements IEnseignantController{
 	@Override
 	@RequestMapping("/enseignant/modifier")
 	public String ModifierFormulaireEnseignant(Model model,@RequestParam Long id) {
-		Enseignant enseignant=new Enseignant();
+		Enseignant enseignant = enseignantBusiness.findById(id);
 		model.addAttribute("titreForm","Modification enseignant");
-		try {
-			enseignant = enseignantBusiness.findById(id);
-		} catch (Exception e) {
-		}
 		model.addAttribute("enseignant",enseignant);
 		return "enseignant/form";
 	}

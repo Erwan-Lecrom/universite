@@ -3,7 +3,6 @@ package fr.erwan.universite.etudiant.business;
 import java.util.List;
 
 import fr.erwan.universite.etudiant.domain.Etudiant;
-import fr.erwan.universite.note.domain.Note;
 
 public interface IEtudiantBusiness {
 	public List<Etudiant> findAll();
