@@ -29,7 +29,6 @@
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-
 		</dependency>
 
 		<dependency>
@@ -81,6 +80,15 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	<distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://10.115.58.15:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://10.115.58.15:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
 
 </project>
