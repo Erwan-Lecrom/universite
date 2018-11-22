@@ -38,7 +38,7 @@ public class EnseignantControllerImpl implements IEnseignantController{
 	@RequestMapping("/enseignant")
 	public String details(Model model , @RequestParam("id") Long id) {
 		LOGGER.info("Entree dans le controlleur qui gere la page details de l'enseignant");
-		LOGGER.info("l'id en parametre : %d",id);
+		LOGGER.info(String.format("l'id en parametre : %d",id));
 		Enseignant enseignant;
 		try {
 			LOGGER.info("Tentative de récupération de l'enseignant en fonction de l'id");
@@ -48,7 +48,7 @@ public class EnseignantControllerImpl implements IEnseignantController{
 			LOGGER.info("chargement de la page");
 			return "enseignant/enseignant";
 		} catch (Exception e) {
-			LOGGER.info("Récupération echouée : L'enseignant avec l'id %d n'existe pas dans la BDD",id);
+			LOGGER.info(String.format("Récupération echouée : L'enseignant avec l'id %d n'existe pas dans la BDD",id));
 			model.addAttribute("erreur","l'utilisateur n'existe pas dans la BDD");
 			return REDIRECT_ENSEIGNANTS;
 		}

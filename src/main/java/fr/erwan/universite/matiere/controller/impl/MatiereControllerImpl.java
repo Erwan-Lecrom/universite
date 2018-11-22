@@ -40,14 +40,7 @@ public class MatiereControllerImpl implements IMatiereController {
 	@GetMapping("/matiere")
 	public String details(Model model,@RequestParam("id") Long id){
 		Matiere matiere=matiereBusiness.findById(id);
-		Enseignant enseignant=new Enseignant();
-		try {
-			enseignant = matiereBusiness.findEnseignantById(matiere.getEnseignant().getId());
-		} catch (Exception e) {
-			
-		}
 		model.addAttribute(ATTR_MATIERE,matiere);
-		model.addAttribute("enseignant",enseignant);
 		return "matiere/matiere";
 	}
 

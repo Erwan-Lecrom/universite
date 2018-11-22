@@ -13,7 +13,7 @@
 	<ul class="list-group">
 		<li class="list-group-item" th:text="${matiere.nom}"></li>
 		<li class="list-group-item"
-			th:text="${'enseignant: '+enseignant.nom + ' ' +enseignant.prenom }"></li>
+			th:text="${'enseignant: '+matiere.enseignant.nom + ' ' +matiere.enseignant.prenom }"></li>
 		<li class="list-group-item" th:text="${'coef : '+matiere.coef}"></li>
 	</ul>
 	<table class="table">
