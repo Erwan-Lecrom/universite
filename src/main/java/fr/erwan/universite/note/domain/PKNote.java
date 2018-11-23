@@ -16,10 +16,10 @@ public class PKNote implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
-	@JoinColumn(name="id_etudiant")
+	@JoinColumn(name="id_etudiant",insertable=false, updatable=false)
 	private Etudiant etudiant;
 	@ManyToOne
-	@JoinColumn(name="id_matiere")
+	@JoinColumn(name="id_matiere",insertable=false, updatable=false)
 	private Matiere matiere;
 
 	public Etudiant getEtudiant() {
