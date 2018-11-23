@@ -11,9 +11,7 @@ import fr.erwan.universite.matiere.domain.Matiere;
 
 @Embeddable
 public class PKNote implements Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
 	@JoinColumn(name="id_etudiant",insertable=false, updatable=false)
