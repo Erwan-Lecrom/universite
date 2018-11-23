@@ -37,7 +37,7 @@ public class EnseignantBusinessImpl implements IEnseignantBusiness {
 
 	@Override
 	public void modifier(Enseignant enseignant) {
-		enseignantRepository.modifier(enseignant.getGrade(),enseignant.getDateEmbauche(),enseignant.getId());
+		enseignantRepository.modifier(enseignant.getGrade(),enseignant.getDateEmbauche(),enseignant.getEnseignantId());
 
 	}
 

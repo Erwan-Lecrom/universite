@@ -21,33 +21,33 @@ public class Enseignant {
 	@Column(name="id")
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id ;
+	private Long EnseignantId ;
 	@NotNull
 	@Column(name="num_enseignant")
 	private Long enseignantNum;
 	@Size(min=2)
 	@Column(name="nom")
-	private String nom;
+	private String Enseignantnom;
 	@Size(min=2)
 	@Column(name="prenom")
-	private String prenom ;
+	private String Enseignantprenom ;
 	@Column(name="date_naissance")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date dateNaissance ;
+	private Date EnseignantdateNaissance ;
 	@Column(name="grade")
 	private String grade ;
 	@Column(name="date_embauche")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dateEmbauche;
 	@Column(name="sexe")
-	private char sexe;
+	private char Enseignantsexe;
 	@OneToMany(mappedBy="enseignant")
 	private List<Matiere>matieres;
-	public Long getId() {
-		return id;
+	public Long getEnseignantId() {
+		return EnseignantId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setEnseignantid(Long enseignantid) {
+		EnseignantId = enseignantid;
 	}
 	public Long getEnseignantNum() {
 		return enseignantNum;
@@ -55,23 +55,23 @@ public class Enseignant {
 	public void setEnseignantNum(Long enseignantNum) {
 		this.enseignantNum = enseignantNum;
 	}
-	public String getNom() {
-		return nom;
+	public String getEnseignantnom() {
+		return Enseignantnom;
 	}
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setEnseignantnom(String enseignantnom) {
+		Enseignantnom = enseignantnom;
 	}
-	public String getPrenom() {
-		return prenom;
+	public String getEnseignantprenom() {
+		return Enseignantprenom;
 	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	public void setEnseignantprenom(String enseignantprenom) {
+		Enseignantprenom = enseignantprenom;
 	}
-	public Date getDateNaissance() {
-		return dateNaissance;
+	public Date getEnseignantdateNaissance() {
+		return EnseignantdateNaissance;
 	}
-	public void setDateNaissance(Date dateNaissance) {
-		this.dateNaissance = dateNaissance;
+	public void setEnseignantdateNaissance(Date enseignantdateNaissance) {
+		EnseignantdateNaissance = enseignantdateNaissance;
 	}
 	public String getGrade() {
 		return grade;
@@ -85,11 +85,11 @@ public class Enseignant {
 	public void setDateEmbauche(Date dateEmbauche) {
 		this.dateEmbauche = dateEmbauche;
 	}
-	public char getSexe() {
-		return sexe;
+	public char getEnseignantsexe() {
+		return Enseignantsexe;
 	}
-	public void setSexe(char sexe) {
-		this.sexe = sexe;
+	public void setEnseignantsexe(char enseignantsexe) {
+		Enseignantsexe = enseignantsexe;
 	}
 	public List<Matiere> getMatieres() {
 		return matieres;
@@ -97,4 +97,5 @@ public class Enseignant {
 	public void setMatieres(List<Matiere> matieres) {
 		this.matieres = matieres;
 	}
+	
 }
