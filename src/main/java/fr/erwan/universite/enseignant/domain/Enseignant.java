@@ -27,20 +27,20 @@ public class Enseignant {
 	private Long enseignantNum;
 	@Size(min=2)
 	@Column(name="nom")
-	private String enseignantnom;
+	private String enseignantNom;
 	@Size(min=2)
 	@Column(name="prenom")
-	private String Enseignantprenom ;
+	private String EnseignantPrenom ;
 	@Column(name="date_naissance")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date enseignantdateNaissance ;
+	private Date enseignantDateNaissance ;
 	@Column(name="grade")
 	private String grade ;
 	@Column(name="date_embauche")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dateEmbauche;
 	@Column(name="sexe")
-	private char enseignantsexe;
+	private char enseignantSexe;
 	@OneToMany(mappedBy="enseignant")
 	private List<Matiere>matieres;
 	public Long getEnseignantId() {
@@ -56,22 +56,22 @@ public class Enseignant {
 		this.enseignantNum = enseignantNum;
 	}
 	public String getEnseignantnom() {
-		return enseignantnom;
+		return enseignantNom;
 	}
 	public void setEnseignantnom(String enseignantnom) {
-		enseignantnom = enseignantnom;
+		enseignantNom = enseignantnom;
 	}
 	public String getEnseignantprenom() {
-		return Enseignantprenom;
+		return EnseignantPrenom;
 	}
 	public void setEnseignantprenom(String enseignantprenom) {
-		Enseignantprenom = enseignantprenom;
+		EnseignantPrenom = enseignantprenom;
 	}
 	public Date getEnseignantdateNaissance() {
-		return enseignantdateNaissance;
+		return enseignantDateNaissance;
 	}
 	public void setEnseignantdateNaissance(Date enseignantdateNaissance) {
-		enseignantdateNaissance = enseignantdateNaissance;
+		enseignantDateNaissance = enseignantdateNaissance;
 	}
 	public String getGrade() {
 		return grade;
@@ -86,10 +86,10 @@ public class Enseignant {
 		this.dateEmbauche = dateEmbauche;
 	}
 	public char getEnseignantsexe() {
-		return enseignantsexe;
+		return enseignantSexe;
 	}
 	public void setEnseignantsexe(char enseignantsexe) {
-		enseignantsexe = enseignantsexe;
+		enseignantSexe = enseignantsexe;
 	}
 	public List<Matiere> getMatieres() {
 		return matieres;
